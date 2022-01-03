@@ -3,8 +3,6 @@ import ReactDOM from "react-dom";
 import "./index.css";
 // import Card from "./Card.js";
 import reportWebVitals from "./reportWebVitals";
-import { robots } from "./robots";
-import CardList from "./CardList";
 import App from "./App";
 
 ReactDOM.render(

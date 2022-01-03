@@ -41,4 +41,34 @@ export const robots = [
     username: "ama145",
     email: "amezoevil@gmail.com",
   },
+  {
+    id: 7,
+    name: "Alita",
+    username: "elit145",
+    email: "alitaBA@gmail.com",
+  },
+  {
+    id: 8,
+    name: "Wall-E",
+    username: "walle1236",
+    email: "walle@gmail.com",
+  },
+  {
+    id: 9,
+    name: "Iron Giant",
+    username: "iron1568",
+    email: "irong@gmail.com",
+  },
+  {
+    id: 10,
+    name: "Doraemon",
+    username: "droa2323",
+    email: "doram@gmail.com",
+  },
+  {
+    id: 11,
+    name: "Bibo",
+    username: "bb2323",
+    email: "bibo@gmail.com",
+  },
 ];
