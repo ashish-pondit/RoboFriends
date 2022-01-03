@@ -3,6 +3,7 @@ import { robots } from "./robots";
 import CardList from "./CardList";
 import SearchBox from "./SearchBox";
 import "tachyons";
+import "./App.css";
 
 // const App = () => {
 //   return (
@@ -33,7 +34,7 @@ class App extends React.Component {
     });
     return (
       <div className="tc">
-        <h1 className="f1">Robo Friends Media</h1>
+        <h1 className="f2">Robo Friends Media</h1>
         <SearchBox searchChange={this.OnsearchChange} />
         <CardList robots={robotsResult} />
       </div>
