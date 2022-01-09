@@ -1,28 +1,26 @@
 import React from "react";
-import { robots } from "./robots";
+// import { robots } from "./robots";
 import CardList from "./CardList";
 import SearchBox from "./SearchBox";
 import "tachyons";
 import "./App.css";
-
-// const App = () => {
-//   return (
-//     <div className="tc">
-//       <h1 className="f1">Robo Friends Media</h1>
-//       <SearchBox />
-//       <CardList robots={robots} />
-//     </div>
-//   );
-// };
+import Scroll from "./Scroll.js";
 
 class App extends React.Component {
   constructor() {
     super();
-    this.state = { robots: robots, searchFiled: "" };
+    this.state = { robots: [], searchFiled: "" };
+  }
+
+  componentDidMount() {
+    // console.log("component did mount called");
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((response) => response.json())
+      .then((users) => this.setState({ robots: users }));
   }
 
   OnsearchChange = (event) => {
-    console.log(event.target.value);
+    // console.log(event.target.value);
     this.setState({ searchFiled: event.target.value });
   };
 
@@ -32,13 +30,20 @@ class App extends React.Component {
         .toLowerCase()
         .includes(this.state.searchFiled.toLowerCase());
     });
-    return (
-      <div className="tc">
-        <h1 className="f2">Robo Friends Media</h1>
-        <SearchBox searchChange={this.OnsearchChange} />
-        <CardList robots={robotsResult} />
-      </div>
-    );
+
+    if (this.state.robots.length === 0) {
+      return <h1>Loading</h1>;
+    } else {
+      return (
+        <div className="tc">
+          <h1 className="f2">Robo Friends Media</h1>
+          <SearchBox searchChange={this.OnsearchChange} />
+          <Scroll>
+            <CardList robots={robotsResult} />
+          </Scroll>
+        </div>
+      );
+    }
   }
 }
 
